@@ -152,34 +152,64 @@ This command retrieves all rows in the transactions table and displays TRANSACTI
 
 ### Ranking Functions – Top Products per Region
 sql
-## Find the top-selling products in each region
-## Query to rank products by sales per region using RANK and ROW_NUMBER.
-## Output: Result showing ranked products by region
+. In this query, RANK() and DENSE_RANK() are used to assign ranks to products within each region based on total sales (from highest to lowest). Both functions are applied using PARTITION BY c.region to ensure ranking is done separately for each region.
+
+RANK() assigns the same rank to tied values but skips the next rank(s).
+Example: If two products tie for 1st, the next rank will be 3 (not 2).
+
+DENSE_RANK() also assigns the same rank to ties, but does not skip the next rank.
+Example: If two products tie for 1st, the next rank will be 2.
+
+These functions help identify top-performing products per region and how they compare in terms of sales volume.
 ![alt text](./Images/Find.png)
 
 
 
 ### Aggregate Functions – Running Totals & Averages
 sql
-## Calculate running totals and moving averages for product categories
-## Query to calculate running totals and moving averages using SUM and AVG.
-## Output:Result showing cumulative totals and moving averages.
+. This query calculates total product sales per category and uses window functions to compute cumulative and moving statistics. It joins transactions with products, groups the data by p.category, and counts how many transactions occurred per category (monthly_sales).
+
+It then uses:
+
+SUM(...) OVER → to calculate the running total of sales within each category.
+
+AVG(...) OVER ROWS 2 PRECEDING → to calculate a moving average over the current row and 2 previous rows, helping to smooth out fluctuations in sales.
+
+These window functions help analyze trends in product category sales across time or rows.
 ![alt text](./Images/Calculate.png)
+
+
 
 
 ### Navigation Functions – Growth with LAG/LEAD
 sql
-## Analyze month-to-month sales growth per region
-## Query to analyze month-to-month growth using LAG and LEAD.
-## Output:Query to segment customers into quartiles using NTILE and CUME_DIST
+. This query analyzes sales per region and compares each region’s sales with its previous and next regions. It joins transactions with customers, groups by c.region, and counts total transactions (total_sales).
+
+It uses:
+
+LAG(...) → to get the previous region’s sales.
+
+LEAD(...) → to get the next region’s sales.
+
+growth column → calculates the difference in sales from the previous region, helping to identify increases or drops.
+
+This is useful for tracking regional sales trends and comparing performance between regions.
 ![alt text](./Images/Analyze.png)
+
+
 
 
 ### Distribution Functions – Customer Segmentation
 sql
-## Segment customers into quartiles based on total purchases
-## Query to segment customers into quartiles using NTILE and CUME_DIST.
-## Output: Result showing customers classified into quartiles.
+. This query analyzes customer purchasing behavior by counting how many transactions each customer made. It joins customers with transactions, groups by customer name and region, and calculates total purchases.
+
+It uses two window functions:
+
+NTILE(4) → divides customers into 4 quartiles based on total purchases, ranking them from highest to lowest. This helps segment customers into performance groups.
+
+CUME_DIST() → calculates the cumulative distribution of purchases, showing the proportion of customers with equal or fewer transactions.
+
+This is useful for customer segmentation and identifying top or low-performing customers.
 ![alt text](./Images/Segment.png)
 
 
@@ -188,37 +218,37 @@ sql
 ### Others Screenshot
 
 ## ER Diagram
-## Entity Relationship Diagram showing customers, products, and transactions.
+. This ER diagram is showing how the tables are related to each other. The TRANSACTIONS table is at the center, and it connects customers with the products they purchased. Each customer can appear in multiple transactions, and each product can also appear in multiple transactions. That’s why there are foreign key links from TRANSACTIONS back to both CUSTOMERS and PRODUCTS. The diagram also highlights the primary keys in each table, which uniquely identify every record.
 ![alt text](./Images/ER_Diagram.png)
 
 
 ## Query error screenshot
-## Example of query with error (wrong table name).
-![alt text](./Images/Spelling_Error_Transaction.png)
+## Example of query with error (wrong table name).. Here, the query failed because the table name was written incorrectly as TRANSACTION instead of TRANSACTIONS. Since Oracle couldn’t find that table, it returned an error. After correcting the name, the query worked fine, as shown in the previous screenshot.![alt text](./Images/Spelling_Error_Transaction.png)
 
 
 ## Fixed query screenshot
-## Corrected query with successful output.
+. This part shows the queries running successfully. The data has been inserted into the tables, and when we select from TRANSACTIONS, we can see all the rows with customers linked to the products they purchased. It proves the tables are working correctly and the relationships are functioning as expected
 ![alt text](./Images/Fixed_Error_Transactions.png)
 
 
 ## JOIN query
-## Displaying customers with purchased products and regions using JOIN.
+. This query retrieves detailed information about each transaction by joining the transactions table with the customers and products tables. It selects the transaction ID, the name and region of the customer who made the purchase, and the name and category of the product purchased. The joins ensure that for every transaction, the associated customer and product details are included in the result set.
+Displaying customers with purchased products and regions using JOIN.
 ![alt text](./Images/Join_Query.png)
 
 
 ## COUNT customers
-## Counting total number of customers (5).
+. This query counts the total number of records in the customers table using COUNT(*) and labels the result as total_customers. It gives the total number of customers stored in the database.
 ![alt text](./Images/Count_From%20Customers.png)
 
 
 ## COUNT products
-## Counting total number of products (5).
+. This query counts the total number of rows in the products table using COUNT(*) and returns the result labeled as total_products. It gives the total number of products available in the database.
 ![alt text](./Images/Count_From_Products.png)
 
 
 ## COUNT transactions
-## Counting total number of transactions (5).
+. This query counts the total number of rows in the transactions table using COUNT(*) and returns the result as total_transactions. It shows the total number of transactions recorded in the database.
 ![alt text](./Images/Count_From_Transactions.png)
 
 
