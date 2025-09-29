@@ -41,6 +41,7 @@ Build an analytics system that identifies top-selling products by region, tracks
 ## The following SQL statements create the necessary tables for the assignment:
 
 ## Customers_table creation
+## Explanation:
 . This screenshot shows the creation of the customers table.
 
 It contains 3 columns:
@@ -54,6 +55,7 @@ region → defined as VARCHAR(50) to store the customer’s region.
 
 
 ## Products_table creation
+## Explanation:
 . This screenshot shows the creation of the products table in addition to the already created customers table.
 
 It contains 3 columns:
@@ -67,6 +69,7 @@ category → defined as VARCHAR(50) to store product category (e.g., phone, lapt
 
 
 ## Transactions_table creation
+## Explanation:
 . This screenshot shows the creation of the transactions table, which links customers and products.
 
 It contains 3 columns + constraints:
@@ -87,18 +90,21 @@ One product can appear in many transactions.
 
 
 ## DESCRIBE customers Table
+## Explanation:
 . The screenshot shows the structure of the customers table.
 The DESC command is used here to verify that all columns (CUSTOMER_ID, NAME, REGION) were created correctly. It helps to understand the schema by showing the column names and data types, so you know how to use them in queries. It also avoids mistakes when inserting or selecting data, and it confirms constraints such as CUSTOMER_ID being NOT NULL.
 ![alt text](./Images/Describe_customers.png)
 
 
 ## DESCRIBE Products Table
+## Explanation: 
 . The screenshot shows the structure of the products table.
 The DESC command confirms that the table has the right columns (PRODUCT_ID, NAME, CATEGORY) with correct data types. This helps you clearly understand the schema when writing queries, prevents errors from wrong column usage, and verifies constraints like PRODUCT_ID being NOT NULL as the primary identifier.
 ![alt text](./Images/Describe_Product.png)
 
 
 ## DESCRIBE Transactions Table
+Explanation:
 . The screenshot shows the structure of the transactions table.
 By using DESC, you can check that the table was created properly with columns (TRANSACTION_ID, CUSTOMER_ID, PRODUCT_ID). It ensures you understand how these fields work together, especially since CUSTOMER_ID and PRODUCT_ID act as foreign keys. The command also helps avoid mistakes when linking data and confirms the TRANSACTION_ID must always have a value (NOT NULL).
 ![alt text](./Images/Describe_Transactions.png)
@@ -109,18 +115,21 @@ By using DESC, you can check that the table was created properly with columns (T
 
 ### Insert Data
 ## Insert Customers
+# Explanation:
 . The screenshot shows data inserted into the customers table.
 The INSERT INTO customers VALUES (...) command is used to add new records with customer details. Each row includes a unique customer_id, customer name, and region. This helps verify that the table structure accepts data correctly and avoids errors by matching values to the right columns. It ensures the schema is working properly for storing customer information.
 ![alt text](./Images/Insert_Into_Customers.png)
 
 
 ## Insert Products
+## Explanation:
 . The screenshot shows data inserted into the products table.
 The INSERT INTO products VALUES (...) command is used to add new products with their details. Each record contains a unique product_id, product name, and category. Running this command ensures that the schema works as expected, prevents data type errors, and confirms that product information can be stored without mistakes.
 ![alt text](./Images/Insert_Into_Products.png)
 
 
 ## Insert Transactions
+## Explanation:
 . The screenshot shows data inserted into the transactions table.
 The INSERT INTO transactions VALUES (...) command is used to record a purchase transaction. Each record has a unique transaction_id, a customer_id (foreign key), and a product_id (foreign key). This verifies that the table correctly links customers to products, avoids errors when inserting mismatched IDs, and enforces constraints such as NOT NULL and foreign key relationships.
 ![alt text](./Images/Insert_Into_Transactions.png)
@@ -129,18 +138,21 @@ The INSERT INTO transactions VALUES (...) command is used to record a purchase t
 ## Select From Tables
 sql
 ## Select from customers
+## Explanation:
 . The screenshot shows a query run on the customers table using SELECT * FROM customers;.
 This command is used to retrieve and display all records from the customers table, including CUSTOMER_ID, NAME, and REGION. It helps verify that the data inserted earlier is stored correctly and can be retrieved without errors.
 ![alt text](./Images/Select_From_Customer.png)
 
 
 ## Select from products
+## Explanation:
 . The screenshot shows a query run on the products table using SELECT * FROM products;.
 This command retrieves all records from the products table and displays PRODUCT_ID, NAME, and CATEGORY. It ensures that product information such as names and categories were inserted correctly into the database.
 ![alt text](./Images/Select_From_Products.png)
 
 
 ## Select from Transactions
+## Explanation:
 . The screenshot shows a query run on the transactions table using SELECT * FROM transactions;.
 This command retrieves all rows in the transactions table and displays TRANSACTION_ID, CUSTOMER_ID, and PRODUCT_ID. It helps confirm that the relationships between customers and products are correctly recorded in the database.
 ![alt text](./Images/Select_From_Transactions.png)
