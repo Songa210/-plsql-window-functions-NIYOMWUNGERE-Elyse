@@ -32,7 +32,6 @@ Build an analytics system that identifies top-selling products by region, tracks
 - Customer Segments → Using `NTILE(4)`to create customer loyalty groups.
 - 3-Month Moving Averages → Using `AVG() OVER()`for moving averages.
 
----
 
 ## Step 3: Set Up the Database Schema
 
