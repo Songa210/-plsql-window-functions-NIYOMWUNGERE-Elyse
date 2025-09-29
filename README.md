@@ -56,7 +56,7 @@ region → defined as VARCHAR(50) to store the customer’s region.
 
 ## Products_table creation
 ## Explanation:
-. This screenshot shows the creation of the products table in addition to the already created customers table.
+. This screenshot below shows the creation of the products table in addition to the already created customers table.
 
 It contains 3 columns:
 
@@ -70,7 +70,7 @@ category → defined as VARCHAR(50) to store product category (e.g., phone, lapt
 
 ## Transactions_table creation
 ## Explanation:
-. This screenshot shows the creation of the transactions table, which links customers and products.
+. This screenshot below shows the creation of the transactions table, which links customers and products.
 
 It contains 3 columns + constraints:
 
@@ -91,21 +91,21 @@ One product can appear in many transactions.
 
 ## DESCRIBE customers Table
 ## Explanation:
-. The screenshot shows the structure of the customers table.
+. This screenshot below shows the structure of the customers table.
 The DESC command is used here to verify that all columns (CUSTOMER_ID, NAME, REGION) were created correctly. It helps to understand the schema by showing the column names and data types, so you know how to use them in queries. It also avoids mistakes when inserting or selecting data, and it confirms constraints such as CUSTOMER_ID being NOT NULL.
 ![alt text](./Images/Describe_customers.png)
 
 
 ## DESCRIBE Products Table
 ## Explanation: 
-. The screenshot shows the structure of the products table.
+. This creenshot below shows the structure of the products table.
 The DESC command confirms that the table has the right columns (PRODUCT_ID, NAME, CATEGORY) with correct data types. This helps you clearly understand the schema when writing queries, prevents errors from wrong column usage, and verifies constraints like PRODUCT_ID being NOT NULL as the primary identifier.
 ![alt text](./Images/Describe_Product.png)
 
 
 ## DESCRIBE Transactions Table
 Explanation:
-. The screenshot shows the structure of the transactions table.
+. This screenshot below shows the structure of the transactions table.
 By using DESC, you can check that the table was created properly with columns (TRANSACTION_ID, CUSTOMER_ID, PRODUCT_ID). It ensures you understand how these fields work together, especially since CUSTOMER_ID and PRODUCT_ID act as foreign keys. The command also helps avoid mistakes when linking data and confirms the TRANSACTION_ID must always have a value (NOT NULL).
 ![alt text](./Images/Describe_Transactions.png)
 
@@ -116,21 +116,21 @@ By using DESC, you can check that the table was created properly with columns (T
 # Insert Data
 ## Insert Customers
 ### Explanation:
-. The screenshot shows data inserted into the customers table.
+. This screenshot below shows data inserted into the customers table.
 The INSERT INTO customers VALUES (...) command is used to add new records with customer details. Each row includes a unique customer_id, customer name, and region. This helps verify that the table structure accepts data correctly and avoids errors by matching values to the right columns. It ensures the schema is working properly for storing customer information.
 ![alt text](./Images/Insert_Into_Customers.png)
 
 
 ## Insert Products
 ### Explanation:
-. The screenshot shows data inserted into the products table.
+. This screenshot below shows data inserted into the products table.
 The INSERT INTO products VALUES (...) command is used to add new products with their details. Each record contains a unique product_id, product name, and category. Running this command ensures that the schema works as expected, prevents data type errors, and confirms that product information can be stored without mistakes.
 ![alt text](./Images/Insert_Into_Products.png)
 
 
 ## Insert Transactions
 ### Explanation:
-. The screenshot shows data inserted into the transactions table.
+. This screenshot below shows data inserted into the transactions table.
 The INSERT INTO transactions VALUES (...) command is used to record a purchase transaction. Each record has a unique transaction_id, a customer_id (foreign key), and a product_id (foreign key). This verifies that the table correctly links customers to products, avoids errors when inserting mismatched IDs, and enforces constraints such as NOT NULL and foreign key relationships.
 ![alt text](./Images/Insert_Into_Transactions.png)
 
@@ -138,21 +138,21 @@ The INSERT INTO transactions VALUES (...) command is used to record a purchase t
 # Select From Tables
 ## Select from customers
 ### Explanation:
-. The screenshot shows a query run on the customers table using SELECT * FROM customers;.
+. This screenshot below shows a query run on the customers table using SELECT * FROM customers;.
 This command is used to retrieve and display all records from the customers table, including CUSTOMER_ID, NAME, and REGION. It helps verify that the data inserted earlier is stored correctly and can be retrieved without errors.
 ![alt text](./Images/Select_From_Customer.png)
 
 
 ## Select from products
 ### Explanation:
-. The screenshot shows a query run on the products table using SELECT * FROM products;.
+. This screenshot below shows a query run on the products table using SELECT * FROM products;.
 This command retrieves all records from the products table and displays PRODUCT_ID, NAME, and CATEGORY. It ensures that product information such as names and categories were inserted correctly into the database.
 ![alt text](./Images/Select_From_Products.png)
 
 
 ## Select from Transactions
 ### Explanation:
-. The screenshot shows a query run on the transactions table using SELECT * FROM transactions;.
+. This screenshot below shows a query run on the transactions table using SELECT * FROM transactions;.
 This command retrieves all rows in the transactions table and displays TRANSACTION_ID, CUSTOMER_ID, and PRODUCT_ID. It helps confirm that the relationships between customers and products are correctly recorded in the database.
 ![alt text](./Images/Select_From_Transactions.png)
 
@@ -178,7 +178,7 @@ These functions help identify top-performing products per region and how they co
 
 ## Aggregate Functions – Running Totals & Averages
 ### Explanation:
-. This query calculates total product sales per category and uses window functions to compute cumulative and moving statistics. It joins transactions with products, groups the data by p.category, and counts how many transactions occurred per category (monthly_sales).
+. This query below show how calculates total product sales per category and uses window functions to compute cumulative and moving statistics. It joins transactions with products, groups the data by p.category, and counts how many transactions occurred per category (monthly_sales).
 
 It then uses:
 
@@ -194,7 +194,7 @@ These window functions help analyze trends in product category sales across time
 
 ## Navigation Functions – Growth with LAG/LEAD
 ### Explanation:
-. This query analyzes sales per region and compares each region’s sales with its previous and next regions. It joins transactions with customers, groups by c.region, and counts total transactions (total_sales).
+. This query below shows how to analyzes sales per region and compares each region’s sales with its previous and next regions. It joins transactions with customers, groups by c.region, and counts total transactions (total_sales).
 
 It uses:
 
@@ -212,7 +212,7 @@ This is useful for tracking regional sales trends and comparing performance betw
 
 ## Distribution Functions – Customer Segmentation
 ### Explanation:
-. This query analyzes customer purchasing behavior by counting how many transactions each customer made. It joins customers with transactions, groups by customer name and region, and calculates total purchases.
+. This query below shows how to analyzes customer purchasing behavior by counting how many transactions each customer made. It joins customers with transactions, groups by customer name and region, and calculates total purchases.
 
 It uses two window functions:
 
@@ -229,7 +229,7 @@ This is useful for customer segmentation and identifying top or low-performing c
 # Others Screenshot
 ## ER Diagram
 ### Explanation:
-. This ER diagram is showing how the tables are related to each other. The TRANSACTIONS table is at the center, and it connects customers with the products they purchased. Each customer can appear in multiple transactions, and each product can also appear in multiple transactions. That’s why there are foreign key links from TRANSACTIONS back to both CUSTOMERS and PRODUCTS. The diagram also highlights the primary keys in each table, which uniquely identify every record.
+. This ER diagram below is showing how the tables are related to each other. The TRANSACTIONS table is at the center, and it connects customers with the products they purchased. Each customer can appear in multiple transactions, and each product can also appear in multiple transactions. That’s why there are foreign key links from TRANSACTIONS back to both CUSTOMERS and PRODUCTS. The diagram also highlights the primary keys in each table, which uniquely identify every record.
 ![alt text](./Images/ER_Diagram.png)
 
 
@@ -250,7 +250,7 @@ This is useful for customer segmentation and identifying top or low-performing c
 
 ## JOIN query
 ### Explanation:
-. This query retrieves detailed information about each transaction by joining the transactions table with the customers and products tables. It selects the transaction ID, the name and region of the customer who made the purchase, and the name and category of the product purchased. The joins ensure that for every transaction, the associated customer and product details are included in the result set.
+. This query below shows how to retrieves detailed information about each transaction by joining the transactions table with the customers and products tables. It selects the transaction ID, the name and region of the customer who made the purchase, and the name and category of the product purchased. The joins ensure that for every transaction, the associated customer and product details are included in the result set.
 Displaying customers with purchased products and regions using JOIN.
 ![alt text](./Images/Join_Query.png)
 
@@ -280,7 +280,7 @@ Displaying customers with purchased products and regions using JOIN.
 ## GROUP BY products
 ## Explanation:
 
-. This query calculates how many times each product was sold.
+. This screenshot shows how to calculates how many times each product was sold.
 
 It joins the transactions table with the products table, then counts the number of transactions per product.
 
@@ -294,7 +294,7 @@ The result shows each product (product_name) and the total number of sales (tota
 ## GROUP BY regions
 Explanation:
 
-. This query calculates the total sales made in each region.
+. This query below shows how to calculates the total sales made in each region.
 
 It joins the transactions table with the customers table, then groups the data by region.
 
