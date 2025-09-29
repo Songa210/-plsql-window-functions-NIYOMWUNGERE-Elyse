@@ -1,10 +1,10 @@
 ## NAMES: NIYOMWUNGERE Elyse
 ## ID: 28273
 ## Group: C
-## DEPARTMENT: Sftware Engineering
+## DEPARTMENT: Software Engineering
 ## COURSE: DATABASE DEVELOPMENT WITH PL/SQL(INSY 8311)
 ## Instructor: Eric Maniraguha
-## Date: 28/09/2025
+## Date: 29/09/2025
 ## Project Topic : PL/SQL Window Functions Mastery Project
 
 
@@ -223,7 +223,8 @@ This is useful for customer segmentation and identifying top or low-performing c
 
 
 ## Query error screenshot
-## Example of query with error (wrong table name).. Here, the query failed because the table name was written incorrectly as TRANSACTION instead of TRANSACTIONS. Since Oracle couldn’t find that table, it returned an error. After correcting the name, the query worked fine, as shown in the previous screenshot.![alt text](./Images/Spelling_Error_Transaction.png)
+## Example of query with error (wrong table name).. Here, the query failed because the table name was written incorrectly as TRANSACTION instead of TRANSACTIONS. Since Oracle couldn’t find that table, it returned an error. After correcting the name, the query worked fine, as shown in the previous screenshot.
+![alt text](./Images/Spelling_Error_Transaction.png)
 
 
 ## Fixed query screenshot
@@ -253,12 +254,29 @@ Displaying customers with purchased products and regions using JOIN.
 
 
 ## GROUP BY products
-## Total sales grouped by product.
+## Explanation:
+
+. This query calculates how many times each product was sold.
+
+It joins the transactions table with the products table, then counts the number of transactions per product.
+
+The result shows each product (product_name) and the total number of sales (total_sales).
+
+👉 Why: To analyze which products are being purchased and how often.
 ![alt text](./Images/Sales_Per_Product.png)
 
 
+
 ## GROUP BY regions
-## Total sales grouped by region.
+Explanation:
+
+. This query calculates the total sales made in each region.
+
+It joins the transactions table with the customers table, then groups the data by region.
+
+The result shows each region (region) and how many transactions (sales) occurred there.
+
+👉 Why: To analyze sales performance across different geographical regions.
 ![alt text](./Images/Sales_Per_Region.png)
 
 
@@ -305,21 +323,25 @@ Tutorial covering Oracle PL/SQL implementations with sample queries.
 5. [DBVis – Beginner’s Guide to SQL Window Functions] (https://www.dbvis.com/thetable/a-beginners-guide-to-sql-window-functions/)
 Introductory guide to how window functions differ from aggregate functions.
 
-6. [Kaggle – SQL Window Functions Examples] (https://www.kaggle.com/code/prashant111/sql-window-functions-tutorial) 
+6. [Kaggle – SQL Window Functions Examples] (https://www.kaggle.com/code/alexisbcook/analytic-functions?utm_source=chatgpt.com) 
 Hands-on SQL examples demonstrating different window functions with datasets.
 
-7. [W3Schools – SQL OVER() Clause] (https://www.w3schools.com/sql/sql_over.asp)
+7. [W3Schools – SQL OVER() Clause] (https://www.postgresql.org/docs/current/functions-window.html)
 Beginner-friendly tutorial on using OVER() with ranking and aggregate functions.
 
 8. [TutorialsPoint – SQL Window Functions] (https://www.tutorialspoint.com/sql/sql-window-functions.htm)
 Covers usage of analytic functions including syntax and examples.
 
-9. [Investopedia – Customer Segmentation in Business] (https://www.investopedia.com/terms/c/customer-segmentation.asp)
+9. [Investopedia – Customer Segmentation in Business] (https://www.forbes.com/advisor/business/customer-segmentation/?utm_source=chatgpt.com)
 Business explanation of customer segmentation techniques and applications.
 
 10. [ResearchGate – Data Analytics for Retail Decision Making] (https://www.researchgate.net/publication/332574698_Cette_beaute_qui_tue)
 Academic paper on using analytics to support decision-making in retail businesses.
 
-11. https://www.researchgate.net/publication/324504154_Analytic_Functions_in_SQL_for_Business_Intelligence
+11.[ResearchGate – Data Analytics for Retail Decision Making] (https://www.researchgate.net/publication/324504154_Analytic_Functions_in_SQL_for_Business_Intelligence)
+Academic paper on using analytics to support decision-making in retail businesses.
 
-12. https://dl.acm.org/doi/10.1145/1807167.1807272
+12. [Investopedia – Market Segmentation] (https://www.investopedia.com/terms/m/marketsegmentation.asp?utm_source=chatgpt.com)
+Business explanation of market segmentation definition, techniques, and applications.
+
+
