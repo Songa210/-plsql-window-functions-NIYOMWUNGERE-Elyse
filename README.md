@@ -37,11 +37,11 @@ Build an analytics system that identifies top-selling products by region, tracks
 ## Step 3: Set Up the Database Schema
 
 
-### Create Tables
+## Create Tables
 ## The following SQL statements create the necessary tables for the assignment:
 
 ## Customers_table creation
-## Explanation:
+### Explanation:
 . This screenshot shows the creation of the customers table.
 
 It contains 3 columns:
@@ -113,46 +113,45 @@ By using DESC, you can check that the table was created properly with columns (T
 
 
 
-### Insert Data
+# Insert Data
 ## Insert Customers
-# Explanation:
+### Explanation:
 . The screenshot shows data inserted into the customers table.
 The INSERT INTO customers VALUES (...) command is used to add new records with customer details. Each row includes a unique customer_id, customer name, and region. This helps verify that the table structure accepts data correctly and avoids errors by matching values to the right columns. It ensures the schema is working properly for storing customer information.
 ![alt text](./Images/Insert_Into_Customers.png)
 
 
 ## Insert Products
-## Explanation:
+### Explanation:
 . The screenshot shows data inserted into the products table.
 The INSERT INTO products VALUES (...) command is used to add new products with their details. Each record contains a unique product_id, product name, and category. Running this command ensures that the schema works as expected, prevents data type errors, and confirms that product information can be stored without mistakes.
 ![alt text](./Images/Insert_Into_Products.png)
 
 
 ## Insert Transactions
-## Explanation:
+### Explanation:
 . The screenshot shows data inserted into the transactions table.
 The INSERT INTO transactions VALUES (...) command is used to record a purchase transaction. Each record has a unique transaction_id, a customer_id (foreign key), and a product_id (foreign key). This verifies that the table correctly links customers to products, avoids errors when inserting mismatched IDs, and enforces constraints such as NOT NULL and foreign key relationships.
 ![alt text](./Images/Insert_Into_Transactions.png)
 
 
-## Select From Tables
-sql
+# Select From Tables
 ## Select from customers
-## Explanation:
+### Explanation:
 . The screenshot shows a query run on the customers table using SELECT * FROM customers;.
 This command is used to retrieve and display all records from the customers table, including CUSTOMER_ID, NAME, and REGION. It helps verify that the data inserted earlier is stored correctly and can be retrieved without errors.
 ![alt text](./Images/Select_From_Customer.png)
 
 
 ## Select from products
-## Explanation:
+### Explanation:
 . The screenshot shows a query run on the products table using SELECT * FROM products;.
 This command retrieves all records from the products table and displays PRODUCT_ID, NAME, and CATEGORY. It ensures that product information such as names and categories were inserted correctly into the database.
 ![alt text](./Images/Select_From_Products.png)
 
 
 ## Select from Transactions
-## Explanation:
+### Explanation:
 . The screenshot shows a query run on the transactions table using SELECT * FROM transactions;.
 This command retrieves all rows in the transactions table and displays TRANSACTION_ID, CUSTOMER_ID, and PRODUCT_ID. It helps confirm that the relationships between customers and products are correctly recorded in the database.
 ![alt text](./Images/Select_From_Transactions.png)
@@ -160,10 +159,10 @@ This command retrieves all rows in the transactions table and displays TRANSACTI
 
 
 
-## Step 4: Window Functions Implementation
+# Step 4: Window Functions Implementation
 
 ### Ranking Functions – Top Products per Region
-sql
+### Explanation:
 . In this query, RANK() and DENSE_RANK() are used to assign ranks to products within each region based on total sales (from highest to lowest). Both functions are applied using PARTITION BY c.region to ensure ranking is done separately for each region.
 
 RANK() assigns the same rank to tied values but skips the next rank(s).
@@ -177,8 +176,8 @@ These functions help identify top-performing products per region and how they co
 
 
 
-### Aggregate Functions – Running Totals & Averages
-sql
+## Aggregate Functions – Running Totals & Averages
+### Explanation:
 . This query calculates total product sales per category and uses window functions to compute cumulative and moving statistics. It joins transactions with products, groups the data by p.category, and counts how many transactions occurred per category (monthly_sales).
 
 It then uses:
@@ -193,8 +192,8 @@ These window functions help analyze trends in product category sales across time
 
 
 
-### Navigation Functions – Growth with LAG/LEAD
-sql
+## Navigation Functions – Growth with LAG/LEAD
+### Explanation:
 . This query analyzes sales per region and compares each region’s sales with its previous and next regions. It joins transactions with customers, groups by c.region, and counts total transactions (total_sales).
 
 It uses:
@@ -211,8 +210,8 @@ This is useful for tracking regional sales trends and comparing performance betw
 
 
 
-### Distribution Functions – Customer Segmentation
-sql
+## Distribution Functions – Customer Segmentation
+### Explanation:
 . This query analyzes customer purchasing behavior by counting how many transactions each customer made. It joins customers with transactions, groups by customer name and region, and calculates total purchases.
 
 It uses two window functions:
@@ -227,42 +226,56 @@ This is useful for customer segmentation and identifying top or low-performing c
 
 
 
-### Others Screenshot
+# Others Screenshot
 
 ## ER Diagram
+### Explanation:
 . This ER diagram is showing how the tables are related to each other. The TRANSACTIONS table is at the center, and it connects customers with the products they purchased. Each customer can appear in multiple transactions, and each product can also appear in multiple transactions. That’s why there are foreign key links from TRANSACTIONS back to both CUSTOMERS and PRODUCTS. The diagram also highlights the primary keys in each table, which uniquely identify every record.
 ![alt text](./Images/ER_Diagram.png)
 
 
+
 ## Query error screenshot
-## Example of query with error (wrong table name).. Here, the query failed because the table name was written incorrectly as TRANSACTION instead of TRANSACTIONS. Since Oracle couldn’t find that table, it returned an error. After correcting the name, the query worked fine, as shown in the previous screenshot.
+### Explanation:
+. Example of query with error (wrong table name).. Here, the query failed because the table name was written incorrectly as TRANSACTION instead of TRANSACTIONS. Since Oracle couldn’t find that table, it returned an error. After correcting the name, the query worked fine, as shown in the previous screenshot.
 ![alt text](./Images/Spelling_Error_Transaction.png)
 
 
+
 ## Fixed query screenshot
+### Explanation:
 . This part shows the queries running successfully. The data has been inserted into the tables, and when we select from TRANSACTIONS, we can see all the rows with customers linked to the products they purchased. It proves the tables are working correctly and the relationships are functioning as expected
 ![alt text](./Images/Fixed_Error_Transactions.png)
 
 
+
 ## JOIN query
+### Explanation:
 . This query retrieves detailed information about each transaction by joining the transactions table with the customers and products tables. It selects the transaction ID, the name and region of the customer who made the purchase, and the name and category of the product purchased. The joins ensure that for every transaction, the associated customer and product details are included in the result set.
 Displaying customers with purchased products and regions using JOIN.
 ![alt text](./Images/Join_Query.png)
 
 
+
 ## COUNT customers
+### Explanation:
 . This query counts the total number of records in the customers table using COUNT(*) and labels the result as total_customers. It gives the total number of customers stored in the database.
 ![alt text](./Images/Count_From%20Customers.png)
 
 
+
 ## COUNT products
+### Explanation:
 . This query counts the total number of rows in the products table using COUNT(*) and returns the result labeled as total_products. It gives the total number of products available in the database.
 ![alt text](./Images/Count_From_Products.png)
 
 
+
 ## COUNT transactions
+### Explanation:
 . This query counts the total number of rows in the transactions table using COUNT(*) and returns the result as total_transactions. It shows the total number of transactions recorded in the database.
 ![alt text](./Images/Count_From_Transactions.png)
+
 
 
 ## GROUP BY products
