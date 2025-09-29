@@ -329,7 +329,7 @@ Hands-on SQL examples demonstrating different window functions with datasets.
 7. [W3Schools – SQL OVER() Clause] (https://www.postgresql.org/docs/current/functions-window.html)
 Beginner-friendly tutorial on using OVER() with ranking and aggregate functions.
 
-8. [TutorialsPoint – SQL Window Functions] (https://www.tutorialspoint.com/sql/sql-window-functions.htm)
+8. [TutorialsPoint – SQL Window Functions] (https://mode.com/sql-tutorial/sql-window-functions?utm_source=chatgpt.com)
 Covers usage of analytic functions including syntax and examples.
 
 9. [Investopedia – Customer Segmentation in Business] (https://www.forbes.com/advisor/business/customer-segmentation/?utm_source=chatgpt.com)
@@ -338,7 +338,7 @@ Business explanation of customer segmentation techniques and applications.
 10. [ResearchGate – Data Analytics for Retail Decision Making] (https://www.researchgate.net/publication/332574698_Cette_beaute_qui_tue)
 Academic paper on using analytics to support decision-making in retail businesses.
 
-11.[ResearchGate – Data Analytics for Retail Decision Making] (https://www.researchgate.net/publication/324504154_Analytic_Functions_in_SQL_for_Business_Intelligence)
+11.[ResearchGate – Data Analytics for Retail Decision Making] (https://docslib.org/doc/1596048/efficient-processing-of-window-functions-in-analytical-sql-queries?utm_source=chatgpt.com)
 Academic paper on using analytics to support decision-making in retail businesses.
 
 12. [Investopedia – Market Segmentation] (https://www.investopedia.com/terms/m/marketsegmentation.asp?utm_source=chatgpt.com)
