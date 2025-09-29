@@ -227,7 +227,6 @@ This is useful for customer segmentation and identifying top or low-performing c
 
 
 # Others Screenshot
-
 ## ER Diagram
 ### Explanation:
 . This ER diagram is showing how the tables are related to each other. The TRANSACTIONS table is at the center, and it connects customers with the products they purchased. Each customer can appear in multiple transactions, and each product can also appear in multiple transactions. That’s why there are foreign key links from TRANSACTIONS back to both CUSTOMERS and PRODUCTS. The diagram also highlights the primary keys in each table, which uniquely identify every record.
